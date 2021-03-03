@@ -1,0 +1,9 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/">Home</a>
+    <a class="nav-link" *ngIf="!authService.isLoggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
+    <a *ngIf="!authService.isLoggedIn()"class="nav-item nav-link" routerLink="/register">Register</a>
+    <a class="nav-link" *ngIf="authService.isLoggedIn()" routerLink="/users">Users</a>
+    <a class="nav-link" *ngIf="authService.isLoggedIn()" routerLink="/" (click)="authService.logout()">Logout</a>
+  </div>
+</nav>
