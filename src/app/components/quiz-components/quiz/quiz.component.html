@@ -1,0 +1,15 @@
+<button class="btn btn-primary" (click)="createNewQuiz()">create new quiz</button>
+
+
+<div *ngIf="quizzes.length">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+    <div *ngFor="let n of quizzes" class="col mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{n.quizTitle}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{n.description}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -29,6 +29,8 @@ export class JwtInterceptor implements HttpInterceptor {
       headers: request.headers.set('Authorization', 'Bearer ' + this.authService.getToken())
     });
 
+    console.log(authReq);
+
     return next.handle(authReq);
   }
 }

@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../../dtos/user';
-import {UserService} from '../../services/user.service';
-import {first} from 'rxjs/operators';
-import {TokenStorageService} from '../../services/token-storage.service';
-import {FormGroup} from '@angular/forms';
-import {AppComponent} from '../../app.component';
 import {AuthService} from '../../services/auth.service';
+import {QuizService} from '../../services/quiz.service';
+import {Quiz} from '../../dtos/quiz';
 
 @Component({
   selector: 'app-home',
@@ -14,12 +10,21 @@ import {AuthService} from '../../services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
+  quizes: Quiz[] = [];
+  constructor(private authService: AuthService, private quizService: QuizService) {
   }
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn()) {
       console.log(this.authService.getToken());
     }
+
+    this.loadQuizes();
+  }
+
+  private loadQuizes(): void{
+    this.quizService.getQuizzes().subscribe((res) => {
+      this.quizes = res;
+    });
   }
 }

@@ -17,6 +17,9 @@ import {FooterComponent} from './components/footer/footer.component';
 import {UsersComponent} from './components/users/users.component';
 import {DatePipe} from '@angular/common';
 import {httpInterceptorProviders} from './interceptors';
+import { CreateQuizComponent } from './components/quiz-components/create-quiz/create-quiz.component';
+import { QuizComponent } from './components/quiz-components/quiz/quiz.component';
+import { EditQuizComponent } from './components/quiz-components/edit-quiz/edit-quiz.component';
 
 // @ts-ignore
 @NgModule({
@@ -29,6 +32,9 @@ import {httpInterceptorProviders} from './interceptors';
     HeaderComponent,
     FooterComponent,
     UsersComponent,
+    CreateQuizComponent,
+    QuizComponent,
+    EditQuizComponent,
   ],
   imports: [
     BrowserModule,

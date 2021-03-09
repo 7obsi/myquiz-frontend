@@ -1,3 +1,23 @@
 <div class="card mt-4">
   <h4 class="card-header">7obsis Quiz App</h4>
 </div>
+
+<div *ngIf="quizes.length">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+    <div *ngFor="let n of quizes" class="col mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{n.quizTitle}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{n.description}}</h6>
+
+          <div *ngFor="let q of n.questions">
+            <p>{{q.questionText}}</p>
+            <div *ngFor="let a of q.answers">
+              <p>{{a.answerText}} is {{a.correct}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

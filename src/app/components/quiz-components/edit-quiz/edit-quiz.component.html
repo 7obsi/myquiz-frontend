@@ -1,0 +1,13 @@
+<div>
+  Showing quiz details with id: {{id}}
+</div>
+
+<h2>{{quiz.quizTitle}}</h2>
+<h4>{{quiz.description}}</h4>
+
+<div *ngFor="let n of quiz.questions">
+  <h6>{{n.questionText}}</h6>
+  <div *ngFor="let q of n.answers">
+    <p>{{q.answerText}} is {{q.correct}}</p>
+  </div>
+</div>
